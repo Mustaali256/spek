@@ -3,54 +3,39 @@
 Spek is an acoustic spectrum analyser written in C++. It uses FFmpeg
 libraries for audio decoding and wxWidgets for the GUI.
 
-Spek is available on *BSD, GNU/Linux, Windows and Mac OS X.
+# Guide to building on Windows
+## 1.
+I will be using WSL. Clone this repo to ~/
+```bash
+git clone https://github.com/Mustaali256/spek.git
+```
+Now install these prerequisites:
+```
+sudo apt update && sudo apt upgrade -y
+sudo apt install libssl-dev make autoconf automake mingw-w64
+```
+Clone [MXE](https://github.com/mxe/mxe.git) to ~  too then cd into the directory:
+```bash
+git clone https://github.com/mxe/mxe.git
+cd mxe/
+```
+Then add MXE to PATH by going into ~/.bashrc (or ~/.zshrc):
+```bash
+export PATH=~/mxe/usr/bin:$PATH
+```
+Then you want to run this in ~/mxe:
+```bash
+make pthreads ffmpeg wxwidgets -j8 JOBS=8 MXE_TARGETS='x86_64-w64-mingw32.static'
+```
 
-Find out more about Spek on its website: <https://www.spek.cc/>
+## 2.
+Next, run this:
+```bash
+cd ~/spek/
+chmod +x dist/win/bundle.sh autogen.sh
+./dist/win/bundle.sh
+```
 
-## Spek 0.8.5 - Released 2023-01-09
+After it has been compiled, you will find the spek.zip in the dist/win/ directory, this is your binary.
 
-### New Features And Enhancements
 
-New features since 0.8.2:
-
- * Upgrade to FFmpeg 5.1
- * Add 2 more palettes and change the default.
- * Allow changing the DFT window size and function.
- * Allow switching between audio streams and channels.
- * Add translations for 14 additional languages.
-
-Enhancements:
-
- * Remove dependency on `intltool`.
- * Fix FFmpeg build warnings.
- * Detect AR tool.
- * Use Homebrew for macOS dependencies.
- * Improve test coverage.
- * Use `XDG_CONFIG_HOME` on Unix systems.
-
-Bugfixes:
-
- * Remove association with .mod and MIDI files.
- * Fix autoconf errors.
- * Fix an AVX-related crash.
-
-### Sources / Packages
-
-Spek 0.8.5 tarball:
-
- * <https://github.com/alexkay/spek/releases/download/v0.8.5/spek-0.8.5.tar.xz>
-
-Windows and Mac OS X binaries:
-
- * <https://github.com/alexkay/spek/releases/download/v0.8.2/spek-0.8.2.msi>
- * <https://github.com/alexkay/spek/releases/download/v0.8.2/spek-0.8.2.zip>
- * <https://github.com/alexkay/spek/releases/download/v0.8.2/spek-0.8.2.dmg>
-
-Unix packages:
-
- * <https://github.com/alexkay/spek/blob/master/INSTALL.md#bsd-and-gnulinux>
-
-### Dependencies
-
- * wxWidgets >= 3
- * A recent version of FFmpeg
