@@ -296,33 +296,18 @@ void SpekWindow::on_help(wxCommandEvent&)
 void SpekWindow::on_about(wxCommandEvent&)
 {
     wxAboutDialogInfo info;
-    info.AddDeveloper("Alexander Kojevnikov");
-    info.AddDeveloper("Andreas Cadhalpun");
-    info.AddDeveloper("Colin Watson");
-    info.AddDeveloper("Daniel Hams");
-    info.AddDeveloper("Elias Ojala");
-    info.AddDeveloper("Fabian Deutsch");
-    info.AddDeveloper("Guillaume Fourrier");
-    info.AddDeveloper("Jakov Smolic");
-    info.AddDeveloper("Jonathan Gonzalez V");
-    info.AddDeveloper("Matteo Bini");
-    info.AddDeveloper("Mike Wang");
-    info.AddDeveloper("Simon Ruderich");
-    info.AddDeveloper("Stefan Kost");
-    info.AddDeveloper("Thibault North");
-    info.AddDeveloper("Wyatt J. Brown");
-    info.AddArtist("Olga Vasylevska");
-    // TRANSLATORS: Add your name here
-    wxString translator = _("translator-credits");
-    if (translator != "translator-credits") {
-        info.AddTranslator(translator);
-    }
-    info.SetName("Spek");
-    info.SetVersion(PACKAGE_VERSION);
-    info.SetCopyright(_("Copyright (c) 2010-2013 Alexander Kojevnikov and contributors"));
-    info.SetDescription(this->description);
+    info.SetDescription(
+        "Spek is a simple acoustic spectrum analyzer.\n\n"
+        "MP3 file, Bitrate 64 kbps - 11 kHz.\n"
+        "MP3 file, Bitrate 128 kbps - 16 kHz.\n"
+        "MP3 file, Bitrate 192 kbps - 19 kHz.\n"
+        "MP3 file, Bitrate 320 kbps - 20 kHz.\n"
+        "M4A file, Bitrate 500 kbps - 22 kHz.\n"
+        "FLAC file, Lossless quality (Bitrate usually 1000 kbps or higher). Graph's drawn continuously, no cut-off."
+    );
+
 #ifdef OS_UNIX
-    info.SetWebSite("https://www.spek.cc/", _("Spek Website"));
+    info.SetWebSite("http://spek.cc/", _("Spek Website"));
     info.SetIcon(wxArtProvider::GetIcon("spek", wxART_OTHER, wxSize(128, 128)));
 #endif
     wxAboutBox(info);
