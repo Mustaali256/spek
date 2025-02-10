@@ -21,7 +21,7 @@ Clone [MXE](https://github.com/mxe/mxe.git) to ~  too then cd into the directory
 git clone https://github.com/mxe/mxe.git
 cd mxe/
 ```
-Then add MXE to PATH by going into ~/.bashrc (or ~/.zshrc):
+Then add MXE to PATH by going into ~/.bashrc (or ~/.zshrc) by adding this line into the file:
 ```bash
 export PATH=~/mxe/usr/bin:$PATH
 ```
