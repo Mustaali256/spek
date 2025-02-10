@@ -27,7 +27,7 @@ export PATH=~/mxe/usr/bin:$PATH
 ```
 Then you want to run this in ~/mxe:
 ```bash
-make pthreads ffmpeg wxwidgets -j8 JOBS=8 MXE_TARGETS='x86_64-w64-mingw32.static'
+make pthreads ffmpeg wxwidgets -j$(nproc) MXE_TARGETS='x86_64-w64-mingw32.static'
 ```
 
 ## 2.
@@ -40,4 +40,15 @@ chmod +x dist/win/bundle.sh autogen.sh
 
 After it has been compiled, you will find the spek.zip in the dist/win/ directory, this is your binary.
 
+# Guide to building on GNU Linux
 
+On Linux it is much simpler.
+
+Clone the repository, configure and make:
+```bash
+git clone https://github.com/Mustaali256/spek.git
+cd spek/
+./configure
+make -j$(nproc)
+```
+Your spek binary will be in src/
