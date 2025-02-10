@@ -3,6 +3,8 @@
 Spek is an acoustic spectrum analyser written in C++. It uses FFmpeg
 libraries for audio decoding and wxWidgets for the GUI.
 
+### I have added a frequency reference for different audio file types in the About section of the software.
+
 # Guide to building on Windows
 ## 1.
 I will be using WSL. Clone this repo to ~/
